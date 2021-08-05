@@ -1,0 +1,65 @@
+<div class="container col-12 col-md-8 card">
+  <div class="card">
+    <div class="card-header"><h2>Parámetros de Búsqueda</h2></div>
+  </div>
+
+  <div class="card">
+    <div class="col">
+      <form [formGroup]="form">
+        <div *ngIf="first.invalid" class="form-group"></div>
+        <input
+          formControlName="first"
+          type="text"
+          class="form-control mb-3"
+          placeholder="Search..."
+        />
+      </form>
+      <div class="btn-toolbar pull-right">
+        <button type="button" class="btn btn-outline-success mr-6">
+          Buscar
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary my-6"
+          (click)="clearSearch()"
+        >
+          Limpiar
+        </button>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="form-group form-control">
+    <div class="card-header"><h2>Lista de usuarios</h2></div>
+    <button
+      type="button"
+      class="btn btn-outline-success"
+      (click)="muestraadd()"
+    >
+      Crear
+    </button>
+    <div class="col overflow">
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Rol</th>
+            <th>Nombre</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr
+            *ngFor="let cliente of personas"
+            class="text-center"
+            (click)="muestraedt()">
+            <td >{{cliente.id_usuario}}</td>
+            <td>{{cliente.id_rol}}</td>
+            <td>{{cliente.nombre}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <app-agregar *ngIf="mostraragregar"></app-agregar>
+  <app-editar *ngIf="mostrareditar"></app-editar>
+</div>

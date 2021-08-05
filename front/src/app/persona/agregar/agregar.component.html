@@ -1,0 +1,102 @@
+<br />
+<div class="card">
+  <form #formuser="ngForm" (ngSubmit)="guardar(formuser)">
+    <div class="card-header">
+      <h2>Información del usuario</h2>
+    </div>
+    <div class="form-group form-control">
+      <div class="col overflow">
+        <div class="btn-toolbar pull-right">
+          <button type="submit" class="btn btn-outline-success mr-6">
+            Guardar
+          </button>
+          <button type="button" class="btn btn-outline-warning my-6" disabled>
+            Editar
+          </button>
+          <button type="button" class="btn btn-outline-danger my-6" disabled>
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="" class="col-form-label">Id</label>
+          </div>
+          <div class="col-auto ms-2" style="padding-left: 45px">
+            <input type="number" class="form-control col-md-7" disabled />
+          </div>
+        </div>
+        <br />
+        <div class="row g-3 align-items-center">
+          <div class="col-auto form-group">
+            <label for="" class="col-form-label">Nombre</label>
+          </div>
+          <div class="col-auto">
+            <input
+              type="text"
+              class="form-control"
+              name="nombre"
+              [(ngModel)]="pers.nombre"
+            />
+          </div>
+        </div>
+        <br />
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="" class="col-form-label">Rol</label>
+          </div>
+          <div class="col-auto form-group" style="padding-left: 45px">
+            <select
+              [(ngModel)]="selectrol.id_rol"
+              name="id_rol"
+              [(ngModel)]="pers.id_rol"
+            >
+              <option *ngFor="let ro of rol" value="{{ ro.id_rol }}">
+                {{ ro.nombre }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="" class="col-form-label">Activo</label>
+          </div>
+          <div class="col-auto form-group" style="padding-left: 25px">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="activo"
+                id="flexRadioDefault1"
+                value="Si"
+                [(ngModel)]="pers.activo"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Si
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="activo"
+                id="flexRadioDefault2"
+                value="No"
+                [(ngModel)]="pers.activo"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
