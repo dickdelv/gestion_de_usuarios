@@ -22,8 +22,8 @@ persona: Persona = new Persona();
   }
 
   Editar(){
-    let id = localStorage.getItem("id_usaurio")
-    this.service.getPersonaId(+id)
+    let id = JSON.parse(localStorage.getItem("id_usaurio") || '{}')
+    this.service.getPersonaId(id)
     .subscribe(data=>{
       this.persona=data;
     })
