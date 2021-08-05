@@ -21,8 +21,7 @@
         <button
           type="button"
           class="btn btn-outline-primary my-6"
-          (click)="clearSearch()"
-        >
+          (click)="clearSearch()" >
           Limpiar
         </button>
       </div>
@@ -51,7 +50,7 @@
             <tr
             *ngFor="let cliente of personas"
             class="text-center"
-            (click)="muestraedt()">
+            (click)="muestraedt(cliente)">
             <td >{{cliente.id_usuario}}</td>
             <td>{{cliente.id_rol}}</td>
             <td>{{cliente.nombre}}</td>
@@ -59,7 +58,6 @@
         </tbody>
       </table>
     </div>
+    <app-agregar *ngIf="mostraragregar"></app-agregar>
   </div>
-  <app-agregar *ngIf="mostraragregar"></app-agregar>
-  <app-editar *ngIf="mostrareditar"></app-editar>
 </div>

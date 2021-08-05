@@ -36,11 +36,13 @@ export class ListarComponent implements OnInit {
   public mostrareditar = false;
 
   muestraadd(): void {
-    this.mostraragregar = true;
-    this.mostrareditar = false;
+    this.router.navigate(["agregar"]);
   }
-  muestraedt(): void {
-    this.mostraragregar = false;
-    this.mostrareditar = true;
+  muestraedt(persona:Persona): void {
+    
+    localStorage.setItem("id_usuario", persona.id_usuario.toString());
+    this.router.navigate(["editar"]);
+
   }
+
 }

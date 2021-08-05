@@ -21,4 +21,7 @@ export class ServiceService {
   getRol() {
     return this.http.get<Rol[]>(this.Url + '/listarol');
   }
+  getPersonaId(id:number){
+    return this.http.get<Persona>(this.Url + "/" +id);
+  }
 }

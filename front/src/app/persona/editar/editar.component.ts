@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Persona, Rol } from 'src/app/Modelo/Persona';
 import { ServiceService } from 'src/app/Service/service.service';
 import { Router } from '@angular/router';
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./editar.component.css']
 })
 export class EditarComponent implements OnInit {
+
+persona: Persona = new Persona();
   public selectrol: Rol ={id_rol:0, nombre:'' };
   rol: Rol[];
   constructor(private router:Router, private service:ServiceService) { }
@@ -18,5 +20,13 @@ export class EditarComponent implements OnInit {
       this.rol = data;
     });
   }
+
+  Editar(){
+    let id = localStorage.getItem("id_usaurio")
+    this.service.getPersonaId(+id)
+    .subscribe(data=>{
+      this.persona=data;
+    })
+}
 
 }
